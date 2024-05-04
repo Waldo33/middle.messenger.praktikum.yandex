@@ -7,6 +7,8 @@ export default defineConfig({
         port: 3000,
     },
     plugins: [
-        handlebars()
+        handlebars({
+            partialDirectory: resolve(__dirname, 'src/partials'),
+        })
     ]
 })
