@@ -1,11 +1,23 @@
+
+// Переменные
 :root {
     --color-white: #FFF;
     --color-accent: #3369F3;
     --color-accent-lighten: #4776ed;
 }
 
-.button {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
     font-family: 'Inter', sans-serif;
+}
+
+// Компоненты
+.button {
     font-size: 13px;
     font-weight: 500;
     padding: 12px;
@@ -39,5 +51,40 @@
         &:hover {
             color: var(--color-accent-lighten);
         }
+    }
+}
+
+.link {
+    color: var(--color-accent);
+    text-decoration: none;
+
+    &:active {
+        color: var(--color-accent-lighten);
+    }
+
+    &:hover {
+        color: var(--color-accent-lighten);
+    }
+}
+
+// Страницы
+.page__error {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__content {
+        text-align: center;
+    }
+
+    &__header {
+        font-size: 40px;
+        font-weight: 400;
+    }
+
+    &__text {
+        margin-top: 20px;
+        margin-bottom: 70px;
     }
 }
