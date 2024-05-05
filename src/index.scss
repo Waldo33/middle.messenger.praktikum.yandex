@@ -1,0 +1,43 @@
+:root {
+    --color-white: #FFF;
+    --color-accent: #3369F3;
+    --color-accent-lighten: #4776ed;
+}
+
+.button {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    &__primary {
+        color: var(--color-white);
+        background-color: var(--color-accent);
+
+        &:active {
+            background-color: var(--color-accent-lighten);
+        }
+
+        &:hover {
+            background-color: var(--color-accent-lighten);
+        }
+    }
+
+    &__link {
+        padding: 12px;
+        background: transparent;
+        color: var(--color-accent);
+
+        &:active {
+            color: var(--color-accent-lighten);
+        }
+
+        &:hover {
+            color: var(--color-accent-lighten);
+        }
+    }
+}
