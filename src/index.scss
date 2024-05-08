@@ -71,6 +71,10 @@ html {
 .input {
     border-bottom: 2px solid var(--color-accent);
     padding: 7px 0;
+    
+    & ~ input[type=hidden] {
+        visibility: hidden;
+    }
 
     label {
         font-size: 12px;
@@ -111,6 +115,13 @@ html {
             color: var(--color-gray);
         }
     }
+}
+
+.page__messages {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .page__error {
