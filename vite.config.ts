@@ -13,6 +13,9 @@ export default defineConfig({
     plugins: [
         handlebars({
             partialDirectory: resolve(__dirname, 'src/partials'),
-        })
-    ]
+            context: {
+                title: "Messenger"
+            }
+        }),
+    ],
 })

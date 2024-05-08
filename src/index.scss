@@ -2,6 +2,7 @@
 // Переменные
 :root {
     --color-white: #FFF;
+    --color-gray: #999999;
     --color-accent: #3369F3;
     --color-accent-lighten: #4776ed;
 }
@@ -67,7 +68,51 @@ html {
     }
 }
 
+.input {
+    border-bottom: 2px solid var(--color-accent);
+    padding: 7px 0;
+
+    label {
+        font-size: 12px;
+        color: var(--color-gray);
+    }
+
+    input {
+        width: 100%;
+        border: none;
+        outline: none;
+        font-size: 16px;
+    }
+}
+
 // Страницы
+.page__auth {
+    max-width: 340px;
+    padding: 30px;
+    margin: 135px auto 0;
+    box-shadow: 1px 1px 16px #615e5e;
+    border-radius: 12px;
+
+    &__header {
+        font-size: 24px;
+        margin-top: 0;
+        text-align: center;
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .input {
+        margin-bottom: 10px;
+
+        &::placeholder {
+            color: var(--color-gray);
+        }
+    }
+}
+
 .page__error {
     height: 100vh;
     display: flex;
