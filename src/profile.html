@@ -1,12 +1,32 @@
 {{>header title="Профиль"}}
 <div class="page__profile">
     <div class="page__profile__buttons">
-        <button class="page__profile__buttons__back">
+        <a class="page__profile__buttons__back" href="/">
             <img src="/arrow-left.svg" alt="Назад">
-        </button>
+        </a>
     </div>
-    <div class="page__profile__form">
-        {{>input name="first_name" label="Имя" variant="form" type="text" value="Олег" placeholder="" value=""}}
+    <div class="page__profile__container">
+        <div class="page__profile__form">
+            <div class="page__profile__form__image">
+                <img src="/picture.svg" alt="Изображение профиля">
+            </div>
+            <div class="page__profile__form__display-name">
+                Иван
+            </div>
+            <div class="page__profile__form__inputs">
+                {{>input name="email" label="Почта" variant="form" type="text" value="pochta@yandex.ru" placeholder=""}}
+                {{>input name="login" label="Логин" variant="form" type="text" value="ivanivanov" placeholder=""}}
+                {{>input name="first_name" label="Имя" variant="form" type="text" value="Иван" placeholder=""}}
+                {{>input name="second_name" label="Фамилия" variant="form" type="text" value="Иванов" placeholder=""}}
+                {{>input name="display_name" label="Имя в чате" variant="form" type="text" value="Иван" placeholder=""}}
+                {{>input name="phone" label="Телефон" variant="form" type="text" value="+7 (909) 967 30 30" placeholder=""}}
+            </div>
+            <div class="page__profile__form__links">
+                {{>link href="/" text="Изменить данные"}}
+                {{>link href="/" text="Изменить пароль"}}
+                {{>link href="/" text="Выйти" variant="danger"}}
+            </div>
+        </div>
     </div>
 </div>
 {{>footer}}
