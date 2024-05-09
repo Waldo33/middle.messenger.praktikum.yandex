@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "start": "tsc && vite build"
+    "start": "tsc && vite build && node server.js"
   },
   "devDependencies": {
     "@types/node": "^20.12.8",
@@ -18,8 +18,5 @@
     "typescript": "^5.2.2",
     "vite": "^5.2.0",
     "vite-plugin-handlebars": "^2.0.0"
-  },
-  "dependencies": {
-    "@types/express": "^4.17.21"
   }
 }
