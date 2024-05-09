@@ -8,6 +8,13 @@
 
 ## Ссылки на страницы
 
+- [index.html](https://waldo-messenger.netlify.app/)
+- [register.html](https://waldo-messenger.netlify.app/register)
+- [messages.html](https://waldo-messenger.netlify.app/messages)
+- [profile.html](https://waldo-messenger.netlify.app/profile)
+- [404.html](https://waldo-messenger.netlify.app/404)
+- [500.html](https://waldo-messenger.netlify.app/500)
+
 ## Команды
 
 - `npm install` — установка зависимостей,
