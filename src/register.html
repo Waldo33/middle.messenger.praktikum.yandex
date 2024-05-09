@@ -1,0 +1,14 @@
+{{>header title="Регистрация"}}
+<div class="page__auth">
+  <h1 class="page__auth__header">Регистрация</h1>
+  {{>input name="first_name" label="Имя" variant="default" value="" type="text" placeholder="Введите имя"}}
+  {{>input name="second_name" label="Фамилия" variant="default" value="" type="text" placeholder="Введите фамилию"}}
+  {{>input name="login" label="Логин" variant="default" value="" type="text" placeholder="Введите логин"}}
+  {{>input name="email" label="Почта" variant="default" value="" type="text" placeholder="Введите почту"}}
+  {{>input name="phone" label="Телефон" variant="default" value="" type="text" placeholder="Введите телефон"}}
+  {{>input name="password" label="Пароль" variant="default" value="" type="password" placeholder="Введите пароль"}}
+  <div class="buttons">
+    {{>button variant="primary" text="Зарегистрироваться" href="/"}}
+  </div>
+</div>
+{{>footer}}
