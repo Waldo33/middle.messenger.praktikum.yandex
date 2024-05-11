@@ -1,0 +1,15 @@
+{{>header title="Вход"}}
+<main class="page__auth">
+  <h1 class="page__auth__header">Вход</h1>
+  <form action="/messages">
+    {{>input name="login" label="Логин" variant="default" value="" type="text" placeholder="Введите логин"}}
+    {{>input name="password" label="Пароль" variant="default" value="" type="password" placeholder="Введите пароль"}}
+    <div class="buttons">
+      <button class="button button__primary" type="submit">
+        Войти
+      </button>
+      {{>button variant="link" text="Ещё не зарегистрированы?" href="/register.html"}}
+    </div>
+  </form>
+</main>
+{{>footer}}
