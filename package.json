@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "start": "npm run build && node server.js",
-    "lint": "eslint ./src",
+    "lint": "eslint .",
+    "lint:style": "npx stylelint \"**/*.css\" --fix",
     "lint:fix": "eslint ./src --fix"
   },
   "devDependencies": {
@@ -28,6 +29,8 @@
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-sort-destructure-keys": "^2.0.0",
     "eslint-plugin-typescript-sort-keys": "^3.2.0",
+    "stylelint": "^16.6.1",
+    "stylelint-config-standard": "^36.0.1",
     "uuid": "^10.0.0"
   }
 }

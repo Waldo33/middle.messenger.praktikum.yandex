@@ -1,4 +1,5 @@
-/build
 **/*.min.js
 /node_modules
-server.js
+/dist
+/.github
+/api
