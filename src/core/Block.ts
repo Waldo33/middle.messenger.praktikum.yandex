@@ -227,7 +227,7 @@ export default class Block<P = any> {
       const layoutContent = content.querySelector('[data-layout="1"]');
 
       if (layoutContent && stubChilds.length) {
-        layoutContent.append(...stubChilds);
+        stubChilds.forEach((child) => layoutContent.append(child))
       }
     });
 
