@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "start": "npm run build && node server.js",
     "lint": "eslint .",
-    "lint:style": "npx stylelint \"**/*.css\" --fix",
+    "lint:style": "npx stylelint \"**/*.scss\" --fix",
     "lint:fix": "eslint ./src --fix"
   },
   "devDependencies": {

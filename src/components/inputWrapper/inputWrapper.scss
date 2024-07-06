@@ -5,14 +5,14 @@
   position: relative;
   margin-bottom: 26px;
 
-  @media screen and (max-width: 425px) {
+  @media screen and (width <= 425px) {
     margin-bottom: 22px;
   }
 
   &_is-auth {
     margin-bottom: 136px;
 
-    @media screen and (max-width: 320px) {
+    @media screen and (width <= 320px) {
       margin-bottom: 120px;
     }
   }
@@ -47,7 +47,7 @@
     line-height: 13px;
     transition: 0.3s font-size, top 0.3s;
 
-    @media screen and (max-width: 425px) {
+    @media screen and (width <= 425px) {
       font-size: 12px;
     }
   }

@@ -12,7 +12,7 @@
   text-align: center;
   transition: 0.3s opacity;
 
-  @media screen and (max-width: 425px) {
+  @media screen and (width <= 425px) {
     font-size: 12px;
     padding: 11px 0;
   }
