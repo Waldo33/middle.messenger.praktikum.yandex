@@ -7,7 +7,7 @@
       url("../vendor/fonts/Inter-Regular.woff2") format("woff2"),
       url("../vendor/fonts/Inter-Regular.woff") format("woff");
   }
-  
+
   @font-face {
     font-family: Inter;
     font-style: normal;
@@ -17,7 +17,7 @@
       url("../vendor/fonts/Inter-Medium.woff2") format("woff2"),
       url("../vendor/fonts/Inter-Medium.woff") format("woff");
   }
-  
+
   @font-face {
     font-family: Inter;
     font-style: normal;
@@ -27,4 +27,3 @@
       url("../vendor/fonts/Inter-SemiBold.woff2") format("woff2"),
       url("../vendor/fonts/Inter-SemiBold.woff") format("woff");
   }
-  

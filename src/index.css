@@ -22,7 +22,7 @@
     --color-link-red: #f00;
     --shadow: rgb(0 0 0 / 14%);
   }
-  
+
 
 body {
   &::-webkit-scrollbar {
