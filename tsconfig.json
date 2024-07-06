@@ -15,7 +15,8 @@
     "noImplicitReturns": true,
     "noImplicitAny": true,
     "sourceMap": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "strictNullChecks": true
   },
   "include": ["src", "global.d.ts"]
 }
