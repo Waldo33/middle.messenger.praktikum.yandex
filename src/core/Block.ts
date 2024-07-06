@@ -1,4 +1,4 @@
-import uuid from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import Handlebars from 'handlebars';
 import EventBus from './EventBus';
 
@@ -16,7 +16,7 @@ export default class Block<P = any> {
     FLOW_RENDER: 'flow:render',
   } as const;
 
-  public id = uuid.v4();
+  public id = uuidv4();
 
   protected _meta: BlockMeta;
 
@@ -173,26 +173,16 @@ export default class Block<P = any> {
   }
 
   _removeEvents() {
-    const { events } = (this.props as any);
-
-    if (!events || !this._element) {
-      return;
-    }
-
-    Object.entries(events).forEach(([event, listener]) => {
-      this._element!.removeEventListener(event, listener);
+    const { events = {} } = this.props as P & { events: Record<string, () => void> };
+    Object.keys(events).forEach((eventName) => {
+      this._element?.removeEventListener(eventName, events[eventName]);
     });
   }
 
   _addEvents() {
-    const { events } = (this.props as any);
-
-    if (!events) {
-      return;
-    }
-
-    Object.entries(events).forEach(([event, listener]) => {
-      this._element!.addEventListener(event, listener);
+    const { events = {} } = this.props as P & { events: Record<string, () => void> };
+    Object.keys(events).forEach((eventName) => {
+      this._element?.addEventListener(eventName, events[eventName]);
     });
   }
 
