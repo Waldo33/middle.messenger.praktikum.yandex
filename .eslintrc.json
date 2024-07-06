@@ -6,7 +6,7 @@
     "es2021": true
   },
   "extends": [
-    "airbnb",
+    "eslint:recommended",
     "plugin:@typescript-eslint/recommended"
   ],
   "settings": {
@@ -24,8 +24,6 @@
   },
   "plugins": [
     "@typescript-eslint",
-    "typescript-sort-keys",
-    "sort-destructure-keys",
     "import"
   ],
   "parserOptions": {
@@ -33,55 +31,7 @@
     "sourceType": "module"
   },
   "rules": {
-    "max-len": [
-      "error",
-      160
-    ],
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": true
-      }
-    ],
-    "no-console": "off",
-    "sort-destructure-keys/sort-destructure-keys": 2,
-    "typescript-sort-keys/interface": "error",
-    "typescript-sort-keys/string-enum": "error",
-    "import/prefer-default-export": "off",
-    "import/extensions": "off",
-    "semi": "error",
-    "no-underscore-dangle": [
-      "error",
-      {
-        "allowAfterThis": true
-      }
-    ],
-    "class-methods-use-this": "off",
-    "no-param-reassign": "off",
-    "default-param-last": "off",
-    "no-shadow": "off",
-    "@typescript-eslint/no-unused-vars": [
-      "error",
-      {
-        "argsIgnorePattern": "^_",
-        "varsIgnorePattern": "^_",
-        "caughtErrorsIgnorePattern": "^_"
-      }
-    ],
-    "@typescript-eslint/no-this-alias": [
-      "error",
-      {
-        "allowedNames": [
-          "self"
-        ]
-      }
-    ],
-    "no-restricted-exports": "warn",
-    "consistent-return": "off",
-    "no-unused-expressions": "off",
-    "camelcase": "off",
-    "@typescript-eslint/no-explicit-any": "off",
-    "no-use-before-define": "off",
-    "no-nested-ternary": "warn"
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/no-this-alias": "warn"
   }
 }

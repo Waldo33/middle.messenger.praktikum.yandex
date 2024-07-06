@@ -2,13 +2,13 @@ import { v4 as uuidv4 } from 'uuid';
 import Handlebars from 'handlebars';
 import EventBus from './EventBus';
 
-interface BlockMeta<P = any> {
+interface BlockMeta<P = unknown> {
   props: P;
 }
 
 type Events = Values<typeof Block.EVENTS>;
 
-export default class Block<P = any> {
+export default class Block<P = unknown> {
   static EVENTS = {
     INIT: 'init',
     FLOW_CDM: 'flow:component-did-mount',
