@@ -12,7 +12,7 @@ const editPassowrdformValidator = new FormValidator(
   config.inputProfileSelector,
   config.btnSubmitFormSelector,
   config.inputProfileHelperTextSelector,
-  config.isShowInputProfileHelperTextSelector
+  config.isShowInputProfileHelperTextSelector,
 );
 
 export default class EditPasswordPage extends Block {
@@ -23,7 +23,7 @@ export default class EditPasswordPage extends Block {
           config.popupChangeAvatarSelector,
           config.editAvatarSelector,
           config.isOpenPopupSelecot,
-          config
+          config,
         ).handleOpenPopup();
       },
       handleChangeInput: () => {
@@ -40,10 +40,10 @@ export default class EditPasswordPage extends Block {
           addErors: editPassowrdformValidator.addErrorsForInput,
         });
       },
-      handleValidateInput: (evt: Event) =>
-        editPassowrdformValidator.handleFieldValidation(evt),
+      handleValidateInput: (evt: Event) => editPassowrdformValidator.handleFieldValidation(evt),
     };
   }
+
   render() {
     // language=hbs
     return `

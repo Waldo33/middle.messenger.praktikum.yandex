@@ -1,5 +1,5 @@
-import Block from './Block';
 import Handlebars, { HelperOptions } from 'handlebars';
+import Block from './Block';
 
 export interface BlockConstructable<Props extends Record<string, unknown>> {
   new (props: Props): Block;
@@ -7,11 +7,11 @@ export interface BlockConstructable<Props extends Record<string, unknown>> {
 }
 
 export default function registerComponent<Props extends Record<string, unknown>>(
-  Component: BlockConstructable<Props>
+  Component: BlockConstructable<Props>,
 ) {
   Handlebars.registerHelper(
     Component.componentName,
-    function (this: Props, { hash: { ref, ...hash }, data, fn }: HelperOptions) {
+    function (this: Props, { data, fn, hash: { ref, ...hash } }: HelperOptions) {
       if (!data.root.children) {
         data.root.children = {};
       }
@@ -43,6 +43,6 @@ export default function registerComponent<Props extends Record<string, unknown>>
       const contents = fn ? fn(this) : '';
 
       return `<div data-id="${component.id}">${contents}</div>`;
-    }
+    },
   );
 }

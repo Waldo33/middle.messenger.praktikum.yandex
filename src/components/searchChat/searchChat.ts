@@ -5,9 +5,11 @@ import search from '../../image/search.svg';
 
 export class SearchChat extends Block {
   static componentName = 'SearchChat';
+
   constructor({ onSearchByChats }: SearchChatProps) {
     super({ onSearchByChats });
   }
+
   protected render(): string {
     // language=hbs
     return `

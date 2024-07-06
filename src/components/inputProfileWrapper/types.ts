@@ -1,14 +1,14 @@
 import { InputType } from '../../types';
 
 export interface InputProfileWrapperProps {
-  onInput?: () => void;
-  onFocus?: () => void;
-  onBlur?: () => void;
   formName: string;
-  name: string;
-  minlength: string;
+  helperText: string;
   maxlength: string;
+  minlength: string;
+  name: string;
+  onBlur?: () => void;
+  onFocus?: () => void;
+  onInput?: () => void;
   type: InputType;
   value: string;
-  helperText: string;
 }

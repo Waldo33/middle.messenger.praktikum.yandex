@@ -5,9 +5,11 @@ import avatar from '../../image/avatar.svg';
 
 export class EditAvatar extends Block {
   static componentName = 'EditAvatar';
+
   constructor({ onClick }: EditAvatarProps) {
     super({ events: { click: onClick } });
   }
+
   protected render(): string {
     // language=hbs
     return `

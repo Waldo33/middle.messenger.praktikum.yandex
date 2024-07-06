@@ -12,10 +12,12 @@ const editProfileformValidator = new FormValidator(
   config.inputProfileSelector,
   config.btnSubmitFormSelector,
   config.inputProfileHelperTextSelector,
-  config.isShowInputProfileHelperTextSelector
+  config.isShowInputProfileHelperTextSelector,
 );
 
-const { email, login, name, lastName, chatName, phone } = dataProfile.payload;
+const {
+  chatName, email, lastName, login, name, phone,
+} = dataProfile.payload;
 
 export default class EditProfilePage extends Block {
   protected getStateFromProps() {
@@ -25,7 +27,7 @@ export default class EditProfilePage extends Block {
           config.popupChangeAvatarSelector,
           config.editAvatarSelector,
           config.isOpenPopupSelecot,
-          config
+          config,
         ).handleOpenPopup();
       },
       handleChangeInput: () => {
@@ -44,10 +46,10 @@ export default class EditProfilePage extends Block {
           isValidField,
         });
       },
-      handleValidateInput: (evt: Event) =>
-        editProfileformValidator.handleFieldValidation(evt),
+      handleValidateInput: (evt: Event) => editProfileformValidator.handleFieldValidation(evt),
     };
   }
+
   render() {
     // language=hbs
     return `

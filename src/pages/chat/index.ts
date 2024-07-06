@@ -4,8 +4,7 @@ import right_arrow from '../../image/right-arrow.svg';
 import chats from '../../data/chats.json';
 import messages from '../../data/messages.json';
 import { ChatType, MessageProps } from '../../types';
-import { Chat } from '../../utils/classes';
-import { Popup } from '../../utils/classes';
+import { Chat, Popup } from '../../utils/classes';
 import { FormValidator } from '../../utils/classes/FormValidator';
 import { config, ADD_USER_FORM, DELETE_USER_FORM } from '../../utils/constants';
 import { handleSubmitForm, checkOnValueInput } from '../../utils/functions';
@@ -16,7 +15,7 @@ const addUserFormValidator = new FormValidator(
   config.inputSelector,
   config.btnSubmitFormSelector,
   config.inputHelperTextSelector,
-  config.isShowHelperTextSelector
+  config.isShowHelperTextSelector,
 );
 
 const deleteUserFormValidator = new FormValidator(
@@ -25,7 +24,7 @@ const deleteUserFormValidator = new FormValidator(
   config.inputSelector,
   config.btnSubmitFormSelector,
   config.inputHelperTextSelector,
-  config.isShowHelperTextSelector
+  config.isShowHelperTextSelector,
 );
 
 export default class ChatPage extends Block {
@@ -42,7 +41,7 @@ export default class ChatPage extends Block {
           config.menuListElementUserSelector,
           config.burgerMenuSelector,
           config.isShowMenuSelecor,
-          config
+          config,
         ).handleOpenPopup();
       },
       handleOpenFileMenu: () => {
@@ -50,7 +49,7 @@ export default class ChatPage extends Block {
           config.menuListElementFileSelector,
           config.btnAttachSelector,
           config.isShowMenuSelecor,
-          config
+          config,
         ).handleOpenPopup();
       },
 
@@ -93,6 +92,7 @@ export default class ChatPage extends Block {
       },
     };
   }
+
   render() {
     // language=hbs
     return `
@@ -106,18 +106,17 @@ export default class ChatPage extends Block {
             {{{SearchChat onSearchByChats=handleSearchByChats }}}
             <ul class="chat__list">
               ${chats.payload
-                .map(
-                  (chat: ChatType) =>
-                    `{{{ListItem
+    .map(
+      (chat: ChatType) => `{{{ListItem
                       userName="${chat.userName}"
                       lastMessage="${chat.lastMessage}"
                       time="${chat.time}"
                       countNotReadMessage="${chat.countNotReadMessage}"
                       srcAvatar="${chat.srcAvatar}"
                       onClick=addClassForActiveElement
-                    }}}`
-                )
-                .join('')}
+                    }}}`,
+    )
+    .join('')}
             </ul>
           </li>
           <li class="chat__column chat__column-default">
@@ -137,17 +136,16 @@ export default class ChatPage extends Block {
             <p class="chat__text-date">19 июня</p>
             <ul class="chat__messages">
               ${messages.payload
-                .map(
-                  (message: MessageProps) =>
-                    `{{{Message
+    .map(
+      (message: MessageProps) => `{{{Message
                       owner=${message.owner}
                       text="${message.text ? message.text : ''}"
                       time="${message.time}"
                       srcImg="${message.srcImg ? message.srcImg : ''}"
-                      isRead=${message.isRead ? true : false}
-                    }}}`
-                )
-                .join('')}
+                      isRead=${!!message.isRead}
+                    }}}`,
+    )
+    .join('')}
             </ul>
             {{{ChatFooter onClick=handleOpenFileMenu}}}
           </li>

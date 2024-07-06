@@ -10,7 +10,7 @@ const signupFormValidator = new FormValidator(
   config.inputSelector,
   config.btnSubmitFormSelector,
   config.inputHelperTextSelector,
-  config.isShowHelperTextSelector
+  config.isShowHelperTextSelector,
 );
 
 export default class SignupPage extends Block {
@@ -38,6 +38,7 @@ export default class SignupPage extends Block {
       },
     };
   }
+
   render() {
     // language=hbs
     return `

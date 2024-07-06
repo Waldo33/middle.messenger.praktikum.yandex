@@ -1,12 +1,12 @@
 import { InputType } from '../../types';
 
 export interface InputProfileProps {
-  onInput?: () => void;
-  onFocus?: () => void;
-  onBlur?: () => void;
-  name: string;
-  minlength?: string;
   maxlength?: string;
+  minlength?: string;
+  name: string;
+  onBlur?: () => void;
+  onFocus?: () => void;
+  onInput?: () => void;
   type: InputType;
   value: string;
 }

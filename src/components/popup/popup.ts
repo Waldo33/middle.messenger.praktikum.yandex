@@ -4,18 +4,19 @@ import { PopupProps } from './types';
 
 export class Popup extends Block {
   static componentName = 'Popup';
+
   constructor({
-    classesPopup,
     classesForm,
-    name,
-    title,
-    isDefault,
+    classesPopup,
     helperText,
-    textBtn,
-    onInput,
-    onFocus,
+    isDefault,
+    name,
     onBlur,
     onClick,
+    onFocus,
+    onInput,
+    textBtn,
+    title,
   }: PopupProps) {
     super({
       classesPopup,
@@ -31,6 +32,7 @@ export class Popup extends Block {
       onClick,
     });
   }
+
   protected getStateFromProps(props: PopupProps): void {
     this.state = {
       classesPopup: props.classesPopup,
@@ -42,25 +44,26 @@ export class Popup extends Block {
       textBtn: props.textBtn,
       onClick: props.onClick,
       onInput: props.onInput,
-      onFocus: onfocus,
-      onBlur: onblur,
+      onFocus: props.onFocus,
+      onBlur: props.onBlur,
     };
   }
 
   protected render(): string {
-    const { classesPopup, classesForm, name, title, isDefault, helperText, textBtn } =
-      this.state;
+    const {
+      classesForm, classesPopup, helperText, isDefault, name, textBtn, title,
+    } = this.state;
     // language=hbs
     return `
-      <div class="popup ${classesPopup ? classesPopup : ''}">
+      <div class="popup ${classesPopup || ''}">
         <div class="popup__container">
           <h2 class="popup__title">${title}</h2>
           <form class="popup__form ${
-            classesForm ? classesForm : ''
-          }" name="${name}" novalidate>
+  classesForm || ''
+}" name="${name}" novalidate>
             ${
-              isDefault
-                ? `
+  isDefault
+    ? `
                   {{{InputWrapper
                     onInput=onInput
                     onFocus=onFocus
@@ -77,14 +80,14 @@ export class Popup extends Block {
                     type="submit"
                   }}}
                   `
-                : `
+    : `
                   {{{InputFile}}}
                   {{{Button
                     textBtn="${textBtn}"
                     type="submit"
                   }}}
                   `
-            }
+}
           </form>
         </div>
       </div>

@@ -1,12 +1,18 @@
-import {Block} from '../../core';
+import { Block } from '../../core';
 import './button.scss';
 import { ButtonProps } from './types';
 
 export class Button extends Block {
   static componentName = 'Button';
-  constructor({ textBtn, type, classes, onClick }: ButtonProps) {
-    super({ textBtn, type, classes, events: { click: onClick } });
+
+  constructor({
+    classes, onClick, textBtn, type,
+  }: ButtonProps) {
+    super({
+      textBtn, type, classes, events: { click: onClick },
+    });
   }
+
   protected getStateFromProps(props: ButtonProps): void {
     this.state = {
       textBtn: props.textBtn,
@@ -14,11 +20,12 @@ export class Button extends Block {
       classes: props.classes,
     };
   }
+
   protected render(): string {
-    const { textBtn, type, classes } = this.state;
+    const { classes, textBtn, type } = this.state;
     // language=hbs
     return `<Button class="button ${
-      classes ? classes : ''
+      classes || ''
     }" type="${type}">${textBtn}</Button>`;
   }
 }

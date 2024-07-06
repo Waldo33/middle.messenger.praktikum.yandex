@@ -5,27 +5,28 @@ enum InputType {
     'tel',
     'number',
   }
-  
+
   enum ButtonType {
     'button',
     'submit',
   }
-  
+
   type ChatType = {
-    userName: string;
-    lastMessage: string;
-    time: string;
     countNotReadMessage: number;
+    lastMessage: string;
     srcAvatar: string;
+    time: string;
+    userName: string;
   };
-  
+
   interface MessageProps {
+    isRead?: boolean;
     owner: boolean;
+    srcImg?: string;
     text?: string;
     time: string;
-    srcImg?: string;
-    isRead?: boolean;
   }
-  
-  export { InputType, ButtonType, type ChatType, type MessageProps };
-  
+
+export {
+  InputType, ButtonType, type ChatType, type MessageProps,
+};

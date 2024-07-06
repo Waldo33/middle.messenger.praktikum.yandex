@@ -1,12 +1,14 @@
-import {Block} from '../../core';
+import { Block } from '../../core';
 import './burgerMenu.scss';
 import { BurgerMenuProps } from './types';
 
 export class BurgerMenu extends Block {
   static componentName = 'BurgerMenu';
+
   constructor({ onClick }: BurgerMenuProps) {
     super({ events: { click: onClick } });
   }
+
   protected render(): string {
     // language=hbs
     return `

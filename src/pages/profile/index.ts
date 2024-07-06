@@ -4,7 +4,9 @@ import dataProfile from '../../data/profile.json';
 import { Popup } from '../../utils/classes/Popup';
 import { config } from '../../utils/constants';
 
-const { email, login, name, lastName, chatName, phone } = dataProfile.payload;
+const {
+  chatName, email, lastName, login, name, phone,
+} = dataProfile.payload;
 
 export default class ProfilePage extends Block {
   protected getStateFromProps() {
@@ -14,11 +16,12 @@ export default class ProfilePage extends Block {
           config.popupChangeAvatarSelector,
           config.editAvatarSelector,
           config.isOpenPopupSelecot,
-          config
+          config,
         ).handleOpenPopup();
       },
     };
   }
+
   render() {
     // language=hbs
     return `

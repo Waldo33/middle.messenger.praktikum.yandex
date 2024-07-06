@@ -11,9 +11,11 @@ import location from '../../image/location.svg';
 
 export class Menu extends Block {
   static componentName = 'Menu';
+
   constructor({ isUser }: MenuProps) {
     super({ isUser });
   }
+
   protected getStateFromProps(props: MenuProps): void {
     this.state = {
       isUser: props.isUser,
@@ -23,7 +25,7 @@ export class Menu extends Block {
           config.popupAddUserSelector,
           config.menuBtnAddUserSelector,
           config.isOpenPopupSelecot,
-          config
+          config,
         ).handleOpenPopup();
       },
       handleDeleteUserPopup: () => {
@@ -31,11 +33,12 @@ export class Menu extends Block {
           config.popupDeleteUserSelector,
           config.menuBtnDeleteUserSelector,
           config.isOpenPopupSelecot,
-          config
+          config,
         ).handleOpenPopup();
       },
     };
   }
+
   protected render(): string {
     // language=hbs
     return `

@@ -1,10 +1,10 @@
 import { ButtonType } from '../../types';
 
 export interface MenuButtonProps {
-  text: string;
-  icon: string;
   alt: string;
   classes?: string;
-  type: ButtonType;
+  icon: string;
   onClick: () => void;
+  text: string;
+  type: ButtonType;
 }

@@ -1,23 +1,23 @@
-import { Input } from '../utils/classes/Input';
+import { Input } from './classes/Input';
 import { Popup } from './classes/Popup';
-import { config } from '../utils/constants';
+import { config } from './constants';
 
 interface SubmitFormProps {
-  disableBtn: () => void;
   addErors: () => void;
-  stateForm: boolean;
-  inputSelector: string;
+  disableBtn: () => void;
   formSelector: string;
+  inputSelector: string;
   isValidField?: boolean | undefined;
+  stateForm: boolean;
 }
 
 export const handleSubmitForm = ({
-  stateForm,
-  inputSelector,
-  formSelector,
-  disableBtn,
   addErors,
+  disableBtn,
+  formSelector,
+  inputSelector,
   isValidField = undefined,
+  stateForm,
 }: SubmitFormProps) => {
   if (stateForm && isValidField === undefined) {
     const form = document.querySelector(`.${formSelector}`);
@@ -39,6 +39,8 @@ export const handleSubmitForm = ({
   }
 };
 
-export const checkOnValueInput = (evt: Event) => {
-  evt.target && new Input(config, evt.target).checkOnValueInput();
+export const checkOnValueInput = (event: Event) => {
+  if (event.target) {
+    return new Input(config, event.target).checkOnValueInput();
+  }
 };

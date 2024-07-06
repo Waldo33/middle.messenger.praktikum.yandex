@@ -1,6 +1,6 @@
-import EventBus from './EventBus';
-import { nanoid } from 'nanoid';
+import uuid from 'uuid';
 import Handlebars from 'handlebars';
+import EventBus from './EventBus';
 
 interface BlockMeta<P = any> {
   props: P;
@@ -16,16 +16,20 @@ export default class Block<P = any> {
     FLOW_RENDER: 'flow:render',
   } as const;
 
-  public id = nanoid(6);
+  public id = uuid.v4();
+
   protected _meta: BlockMeta;
 
   protected _element: Nullable<HTMLElement> = null;
+
   protected readonly props: P;
+
   protected children: { [id: string]: Block } = {};
 
   eventBus: () => EventBus<Events>;
 
   protected state: any = {};
+
   protected refs: { [key: string]: HTMLElement } = {};
 
   static componentName: string;
@@ -75,7 +79,7 @@ export default class Block<P = any> {
   }
 
   componentDidMount(props: P) {
-    console.log('componentDidMount', props)
+    console.log('componentDidMount', props);
   }
 
   _componentDidUpdate(oldProps: P, newProps: P) {
@@ -87,7 +91,7 @@ export default class Block<P = any> {
   }
 
   componentDidUpdate(oldProps: P, newProps: P) {
-    console.log('componentDidUpdate', oldProps, newProps)
+    console.log('componentDidUpdate', oldProps, newProps);
     return true;
   }
 
@@ -169,7 +173,7 @@ export default class Block<P = any> {
   }
 
   _removeEvents() {
-    const events: Record<string, () => void> = (this.props as any).events;
+    const { events } = (this.props as any);
 
     if (!events || !this._element) {
       return;
@@ -181,7 +185,7 @@ export default class Block<P = any> {
   }
 
   _addEvents() {
-    const events: Record<string, () => void> = (this.props as any).events;
+    const { events } = (this.props as any);
 
     if (!events) {
       return;

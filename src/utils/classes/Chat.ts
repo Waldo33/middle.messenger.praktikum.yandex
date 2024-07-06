@@ -14,10 +14,10 @@ export class Chat extends View {
     this._contentDefault = document.querySelector(`.${this._contentDefaultSelector}`);
     this._contentDialod = document.querySelector(`.${this._contentDialodSelector}`);
     this._searchInputByChats = document.querySelector(
-      `.${this._searchInputByChatsSelector}`
+      `.${this._searchInputByChatsSelector}`,
     );
     this._imgFromSearchInputByChats = document.querySelector(
-      `.${this._imgFromSearchInputByChatsSelector}`
+      `.${this._imgFromSearchInputByChatsSelector}`,
     );
   }
 

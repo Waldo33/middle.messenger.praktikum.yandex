@@ -5,7 +5,7 @@ export class Popup extends View {
     menuSelector: string,
     btnSelector: string,
     isOpenPopupSelector: string,
-    config: Record<string, string>
+    config: Record<string, string>,
   ) {
     super();
     this._menuSelector = menuSelector;
@@ -67,16 +67,16 @@ export class Popup extends View {
       document.removeEventListener('click', this._closeByOutsideZone);
       this._enabledScroll(this._contentDialod);
       this._menu.classList.remove(this._isOpenPopupSelector);
-      this._menuSelector === this._menuListElementUserSelector &&
-        this._removeClassForUserMenu();
+      this._menuSelector === this._menuListElementUserSelector
+        && this._removeClassForUserMenu();
     }
   }
 
   private _closeByOutsideZoneMenu = (evt: Event) => {
     if (this._menu && this._btnMenu) {
       !(
-        evt.composedPath().includes(this._menu) ||
-        evt.composedPath().includes(this._btnMenu)
+        evt.composedPath().includes(this._menu)
+        || evt.composedPath().includes(this._btnMenu)
       ) && this._handleClosePopup();
     }
   };
@@ -92,14 +92,14 @@ export class Popup extends View {
   private _closeByOutsideZonePopup = (
     popupContainer: Element | null,
     selectorBtn: string,
-    evt: Event
+    evt: Event,
   ) => {
     if (popupContainer) {
       const target = evt.target as HTMLDivElement;
 
-      !evt.composedPath().includes(popupContainer) &&
-        !Array.from(target.classList).includes(selectorBtn) &&
-        this._handleClosePopup();
+      !evt.composedPath().includes(popupContainer)
+        && !Array.from(target.classList).includes(selectorBtn)
+        && this._handleClosePopup();
     }
   };
 
@@ -110,18 +110,19 @@ export class Popup extends View {
     if (this._menu) {
       const popupContainer = this._menu.querySelector(`.${this._popupСontainerSelector}`);
       const isEditAvatar = Array.from(this._menu.classList).includes(
-        this._popupChangeAvatarSelector
+        this._popupChangeAvatarSelector,
       );
 
       this._closeMenuIfPopupIsOpen(popupContainer);
 
-      !isEditAvatar &&
+      if (!isEditAvatar) {
         this._closeByOutsideZonePopup(popupContainer, this._menuBtnSelector, evt);
+      }
 
       if (
-        isEditAvatar &&
-        !Array.from(element.classList).includes(this._editAvatarTextSelector) &&
-        popupContainer
+        isEditAvatar
+        && !Array.from(element.classList).includes(this._editAvatarTextSelector)
+        && popupContainer
       ) {
         this._closeByOutsideZonePopup(popupContainer, this._editAvatarSelector, evt);
       }
@@ -133,8 +134,8 @@ export class Popup extends View {
       document.addEventListener('click', this._closeByOutsideZone);
       this._disabledScroll(this._contentDialod);
       this._menu.classList.add(this._isOpenPopupSelector);
-      this._menuSelector === this._menuListElementUserSelector &&
-        this._addClassForUserMenu();
+      this._menuSelector === this._menuListElementUserSelector
+        && this._addClassForUserMenu();
     }
   };
 

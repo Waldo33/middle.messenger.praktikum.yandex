@@ -10,7 +10,7 @@ const signinFormValidator = new FormValidator(
   config.inputSelector,
   config.btnSubmitFormSelector,
   config.inputHelperTextSelector,
-  config.isShowHelperTextSelector
+  config.isShowHelperTextSelector,
 );
 
 export default class SigninPage extends Block {
@@ -34,6 +34,7 @@ export default class SigninPage extends Block {
       handleValidateInput: (evt: Event) => signinFormValidator.handleFieldValidation(evt),
     };
   }
+
   render() {
     // language=hbs
     return `

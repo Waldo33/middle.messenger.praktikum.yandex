@@ -1,13 +1,13 @@
 import { InputType } from '../../types';
 
 export interface InputWrapperProps {
-  onInput?: () => void;
-  onFocus?: () => void;
-  onBlur?: () => void;
-  name: string;
-  type: InputType;
-  helperText: string;
-  minlength?: number;
-  maxlength?: number;
   classes?: string;
+  helperText: string;
+  maxlength?: number;
+  minlength?: number;
+  name: string;
+  onBlur?: () => void;
+  onFocus?: () => void;
+  onInput?: () => void;
+  type: InputType;
 }
