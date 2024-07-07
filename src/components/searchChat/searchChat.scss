@@ -1,0 +1,16 @@
+.search-chat {
+  font-family: inherit;
+
+  &__label {
+    position: relative;
+    display: block;
+  }
+
+  &__img {
+    cursor: text;
+    position: absolute;
+    top: 50%;
+    left: 38%;
+    transform: translateY(-50%);
+  }
+}

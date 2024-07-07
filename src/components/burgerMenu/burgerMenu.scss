@@ -1,0 +1,31 @@
+.burger-menu {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  padding: 5px 11px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  transition: 0.3s background-color;
+
+  &_active {
+    background-color: var(--color-menu-btn);
+  }
+
+  &__btn-icon {
+    fill: var(--color-primaty);
+    transition: 0.3s fill;
+  }
+
+  &:hover {
+    background-color: var(--color-menu-btn);
+  }
+
+  &_active > &__btn-icon {
+    fill: var(--color-secondary);
+  }
+
+  &:hover > &__btn-icon {
+    fill: var(--color-secondary);
+  }
+}
