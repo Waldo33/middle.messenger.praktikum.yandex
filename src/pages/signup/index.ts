@@ -72,7 +72,7 @@ export default class SignupPage extends Block {
               helperText="Имя"
               minlength="1"
               maxlength="50"
-              name="name"
+              name="first_name"
             }}}
             {{{InputWrapper
               onInput=handleChangeInput
@@ -82,7 +82,7 @@ export default class SignupPage extends Block {
               helperText="Фамилия"
               minlength="1"
               maxlength="50"
-              name="lastName"
+              name="second_name"
             }}}
             {{{InputWrapper
               onInput=handleChangeInput

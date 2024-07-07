@@ -17,6 +17,7 @@ export class Popup extends Block {
     onInput,
     textBtn,
     title,
+    inputFileName,
   }: PopupProps) {
     super({
       classesPopup,
@@ -26,6 +27,7 @@ export class Popup extends Block {
       isDefault,
       helperText,
       textBtn,
+      inputFileName,
       onInput,
       onFocus,
       onBlur,
@@ -42,6 +44,7 @@ export class Popup extends Block {
       isDefault: props.isDefault,
       helperText: props.helperText,
       textBtn: props.textBtn,
+      inputFileName: props.inputFileName,
       onClick: props.onClick,
       onInput: props.onInput,
       onFocus: props.onFocus,
@@ -51,7 +54,7 @@ export class Popup extends Block {
 
   protected render(): string {
     const {
-      classesForm, classesPopup, helperText, isDefault, name, textBtn, title,
+      classesForm, classesPopup, helperText, isDefault, name, textBtn, title, inputFileName,
     } = this.state;
     // language=hbs
     return `
@@ -81,7 +84,9 @@ export class Popup extends Block {
                   }}}
                   `
     : `
-                  {{{InputFile}}}
+                  {{{InputFile
+                    inputFileName="${inputFileName}"
+                  }}}
                   {{{Button
                     textBtn="${textBtn}"
                     type="submit"

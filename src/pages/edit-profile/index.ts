@@ -95,7 +95,7 @@ export default class EditProfilePage extends Block {
                   value="${name}"
                   minlength="1"
                   maxlength="50"
-                  name="name"
+                  name="first_name"
                   formName="profile__form_el_edit-form"
                 }}}
                 {{{InputProfileWrapper
@@ -107,7 +107,7 @@ export default class EditProfilePage extends Block {
                   value="${lastName}"
                   minlength="1"
                   maxlength="50"
-                  name="lastName"
+                  name="second_name"
                   formName="profile__form_el_edit-form"
                 }}}
                 {{{InputProfileWrapper
@@ -131,7 +131,7 @@ export default class EditProfilePage extends Block {
                   value="${chatName}"
                   minlength="1"
                   maxlength="50"
-                  name="chatName"
+                  name="display_name"
                   formName="profile__form_el_edit-form"
                 }}}
                 {{{Button
@@ -149,6 +149,7 @@ export default class EditProfilePage extends Block {
            textBtn="Поменять"
            classesPopup="popup_change-avatar"
            isDefault=false
+           inputFileName="avatar"
           }}}
       </div>
     `;

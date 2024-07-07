@@ -108,6 +108,7 @@ export default class EditPasswordPage extends Block {
           textBtn="Поменять"
           classesPopup="popup_change-avatar"
           isDefault=false
+          inputFileName="avatar"
         }}}
       </div>
     `;

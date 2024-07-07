@@ -10,4 +10,5 @@ export interface PopupProps {
   onInput?: () => void;
   textBtn: string;
   title: string;
+  inputFileName: string;
 }
