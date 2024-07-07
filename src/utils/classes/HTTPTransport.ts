@@ -45,7 +45,7 @@ export class HTTPTransport {
 
   public delete: HTTPMethod = (url, options = {}) => this.request(url, { ...options, method: METHODS.DELETE });
 
-  private request = <T extends unknown>(url: string, options: RequestOptions): Promise<XMLHttpRequestWithCustomResponse<T>> => {
+  private request = <T>(url: string, options: RequestOptions): Promise<XMLHttpRequestWithCustomResponse<T>> => {
     const {
       data,
       headers = {},
