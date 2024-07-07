@@ -28,18 +28,24 @@ function queryStringify(data: RequestData) {
   );
 }
 
+interface XMLHttpRequestWithCustomResponse<R=unknown> extends XMLHttpRequest {
+  response: R;
+}
+
+type HTTPMethod = <R = unknown>(url: string, options?: RequestOptions) => Promise<XMLHttpRequestWithCustomResponse<R>>
+
 export class HTTPTransport {
-  public get = (url: string, options = {}) => this.request(url, { ...options, method: METHODS.GET });
+  public get: HTTPMethod = (url, options = {}) => this.request(url, { ...options, method: METHODS.GET });
 
-  public post = (url: string, options = {}) => this.request(url, { ...options, method: METHODS.POST });
+  public post: HTTPMethod = (url, options = {}) => this.request(url, { ...options, method: METHODS.POST });
 
-  public put = (url: string, options = {}) => this.request(url, { ...options, method: METHODS.PUT });
+  public put: HTTPMethod = (url, options = {}) => this.request(url, { ...options, method: METHODS.PUT });
 
-  public patch = (url: string, options = {}) => this.request(url, { ...options, method: METHODS.PATCH });
+  public patch: HTTPMethod = (url, options = {}) => this.request(url, { ...options, method: METHODS.PATCH });
 
-  public delete = (url: string, options = {}) => this.request(url, { ...options, method: METHODS.DELETE });
+  public delete: HTTPMethod = (url, options = {}) => this.request(url, { ...options, method: METHODS.DELETE });
 
-  private request = (url: string, options: RequestOptions) => {
+  private request = <T extends unknown>(url: string, options: RequestOptions): Promise<XMLHttpRequestWithCustomResponse<T>> => {
     const {
       data,
       headers = {},
@@ -53,7 +59,7 @@ export class HTTPTransport {
     const query = method === METHODS.GET ? queryStringify(dataTypeCov) : '';
 
     return new Promise((resolve, reject) => {
-      const xhr = new XMLHttpRequest();
+      const xhr: XMLHttpRequestWithCustomResponse<T> = new XMLHttpRequest();
 
       xhr.open(method, `${url}${query}`);
 
