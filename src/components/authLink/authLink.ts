@@ -1,5 +1,5 @@
 import { Block } from '../../core';
-import './authLink.css';
+import './authLink.scss';
 import { AuthLinkProps } from './types';
 
 export class AuthLink extends Block {
