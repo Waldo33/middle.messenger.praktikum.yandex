@@ -1,5 +1,5 @@
 import { Block } from '../../core';
-import './menu.css';
+import './menu.scss';
 import { MenuProps } from './types';
 import { Popup } from '../../utils/classes';
 import plus from '../../image/plus.svg';

@@ -1,5 +1,5 @@
 import { Block } from '../../core';
-import './inputProfile.css';
+import './inputProfile.scss';
 import { InputProfileProps } from './types';
 
 export class InputProfile extends Block {

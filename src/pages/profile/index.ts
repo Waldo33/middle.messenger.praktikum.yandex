@@ -1,5 +1,5 @@
 import { Block, store, BrowserRouter as router } from '../../core';
-import 'styles/profile.scss';
+import '../../styles/profile.scss';
 import { authService, profileService } from '../../services';
 import { InitialStateType, StoreEvents } from '../../types';
 import { Popup } from '../../utils/classes';

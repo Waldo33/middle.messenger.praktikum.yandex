@@ -1,5 +1,5 @@
 import { Block } from '../../core';
-import './error.css';
+import './error.scss';
 import { ErrorProps } from './types';
 
 export class Error extends Block {

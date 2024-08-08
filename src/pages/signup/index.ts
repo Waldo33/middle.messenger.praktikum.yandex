@@ -1,5 +1,5 @@
 import { Block, BrowserRouter as router } from '../../core';
-import 'styles/auth.scss';
+import '../../styles/auth.scss';
 import { config, FORM_ELEMENTS, PATHNAMES } from '../../utils/constants';
 import { FormValidator } from '../../utils/classes';
 import { checkOnValueInput } from '../../utils/functions/checkOnValueInput';

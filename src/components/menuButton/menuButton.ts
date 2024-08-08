@@ -1,5 +1,5 @@
 import { Block } from '../../core';
-import './menuButton.css';
+import './menuButton.scss';
 import { MenuButtonProps } from './types';
 
 export class MenuButton extends Block {

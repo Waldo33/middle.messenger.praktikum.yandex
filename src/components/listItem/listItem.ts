@@ -1,5 +1,5 @@
 import { Block } from '../../core';
-import './listItem.css';
+import './listItem.scss';
 import { ListItemProps } from './types';
 import { ChatType } from '../../types';
 import { DAYS, DATA_ATTRIBUTE } from '../../utils/constants';

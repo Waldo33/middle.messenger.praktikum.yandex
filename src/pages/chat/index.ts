@@ -1,5 +1,5 @@
 import { Block, BrowserRouter as router, store } from '../../core';
-import 'styles/chat.scss';
+import '../../styles/chat.scss';
 import {
   CreateChatType,
   SearchUserByLoginType,

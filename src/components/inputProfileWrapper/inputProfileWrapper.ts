@@ -1,5 +1,5 @@
 import { Block } from '../../core';
-import './inputProfileWrapper.css';
+import './inputProfileWrapper.scss';
 import { InputProfileWrapperProps } from './types';
 
 export class InputProfileWrapper extends Block {

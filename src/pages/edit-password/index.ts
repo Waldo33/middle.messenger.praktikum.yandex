@@ -1,5 +1,5 @@
 import { Block, store, BrowserRouter as router } from '../../core';
-import 'styles/profile.scss';
+import '../../styles/profile.scss';
 import { authService, profileService } from '../../services';
 import { UserPasswordType, StoreEvents, InitialStateType } from '../../types';
 import { FormValidator, Popup } from '../../utils/classes';

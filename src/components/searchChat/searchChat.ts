@@ -1,5 +1,5 @@
 import { Block } from '../../core';
-import './searchChat.css';
+import './searchChat.scss';
 import { SearchChatProps } from './types';
 import search from '../../image/search.svg';
 import { config } from '../../utils/constants';
