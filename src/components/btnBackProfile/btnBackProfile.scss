@@ -5,7 +5,10 @@
 
   &__link {
     box-sizing: border-box;
-    text-decoration: none;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    padding: 0;
     border: none;
     padding: 0;
     width: 100%;
@@ -14,6 +17,21 @@
     justify-content: center;
     align-items: center;
     transition: 0.3s opacity;
+  }
+
+  &__btn {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 13px;
+    transition: 0.3s opacity;
+  }
+
+  &__btn:hover {
+    opacity: 0.7;
   }
 
   &__link:hover {

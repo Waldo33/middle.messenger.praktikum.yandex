@@ -1,13 +1,29 @@
 import { Block } from '../../core';
-import './searchChat.scss';
+import './searchChat.css';
 import { SearchChatProps } from './types';
 import search from '../../image/search.svg';
+import { config } from '../../utils/constants';
+import { Popup } from '../../utils/classes';
 
 export class SearchChat extends Block {
   static componentName = 'SearchChat';
 
-  constructor({ onSearchByChats }: SearchChatProps) {
-    super({ onSearchByChats });
+  constructor({ ...rest }: SearchChatProps) {
+    super({ ...rest });
+  }
+
+  protected getStateFromProps() {
+    this.state = {
+      hendleSubmitForm: (evt: Event) => {
+        evt.preventDefault();
+        new Popup(
+          config.popupAddChatSelector,
+          config.addChatBtnSelector,
+          config.isOpenPopupSelector,
+          config
+        ).handleOpenPopup();
+      },
+    };
   }
 
   protected render(): string {
@@ -18,6 +34,11 @@ export class SearchChat extends Block {
           {{{InputChat onInput=onSearchByChats}}}
           <img class="search-chat__img" src="${search}" alt="Поиск по чату" />
         </label>
+        {{{Button
+          onClick=hendleSubmitForm
+          type="button"
+          classes="search-chat__btn"
+        }}}
       </form>
     `;
   }

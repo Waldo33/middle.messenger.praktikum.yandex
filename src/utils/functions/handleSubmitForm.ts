@@ -1,26 +1,27 @@
-import { Input } from './classes/Input';
-import { Popup } from './classes/Popup';
-import { config } from './constants';
+import { Popup } from "../classes";
+import { config, FORM_ELEMENTS } from "../constants";
 
 interface SubmitFormProps {
-  addErors: () => void;
   disableBtn: () => void;
-  formSelector: string;
-  inputSelector: string;
-  isValidField?: boolean | undefined;
+  addErors: () => void;
   stateForm: boolean;
+  inputSelector: string;
+  formSelector: string;
+  isValidField?: boolean | undefined;
+  isNotCloseBySbmit?: boolean;
 }
 
 export const handleSubmitForm = ({
-  addErors,
-  disableBtn,
-  formSelector,
-  inputSelector,
-  isValidField = undefined,
   stateForm,
+  inputSelector,
+  formSelector,
+  disableBtn,
+  addErors,
+  isValidField = undefined,
 }: SubmitFormProps) => {
   if (stateForm && isValidField === undefined) {
-    const form = document.querySelector(`.${formSelector}`);
+    const form = document.querySelector(`.${formSelector}`) as HTMLFormElement;
+
     if (form) {
       const inputs = form.querySelectorAll(`.${inputSelector}`);
       let dataForm = {};
@@ -29,18 +30,18 @@ export const handleSubmitForm = ({
         const inputElement = input as HTMLInputElement;
         dataForm = { ...dataForm, [inputElement.name]: inputElement.value };
       });
-      console.log(dataForm);
 
-      Popup.handleClosePopup(config.isOpenPopupSelecot);
+      if (
+        form.name !== FORM_ELEMENTS.ADD_USER_FORM &&
+        form.name !== FORM_ELEMENTS.DELETE_USER_FORM
+      ) {
+        Popup.handleClosePopup(config.isOpenPopupSelector);
+      }
+
+      return dataForm;
     }
   } else {
     disableBtn();
     addErors();
-  }
-};
-
-export const checkOnValueInput = (event: Event) => {
-  if (event.target) {
-    return new Input(config, event.target).checkOnValueInput();
   }
 };

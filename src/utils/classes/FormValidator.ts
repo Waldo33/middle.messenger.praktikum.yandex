@@ -1,13 +1,5 @@
+import { FORM_ELEMENTS, MESSAGES, REGEXP_FOR_NAME_AND_LASTNAME, REGEXP_FOR_PHONE } from '../constants';
 import { View } from './View';
-import {
-  USER_NAME_FIELD,
-  LAST_NAME_USER_FIELD,
-  PHONE_USER_FIELD,
-  CUSTOM_ERROR_FOR_NAME_AND_LASTNAME,
-  CUSTOM_ERROR_FOR_PHONE_FILED,
-  REGEXP_FOR_NAME_AND_LASTNAME,
-  REGEXP_FOR_PHONE,
-} from '../constants';
 
 export class FormValidator extends View {
   constructor(
@@ -16,7 +8,7 @@ export class FormValidator extends View {
     inputSelector: string,
     btnSelector: string,
     inputHelperTextSelector: string,
-    isShowHelperTextSelector: string,
+    isShowHelperTextSelector: string
   ) {
     super();
     this._formSelector = formSelector;
@@ -48,27 +40,30 @@ export class FormValidator extends View {
     return form.querySelectorAll(`.${this._inputSelector}`);
   };
 
-  private _checkExpressionByRegExp = (regexp: RegExp, value: string) => !regexp.test(value);
+  private _checkExpressionByRegExp = (regexp: RegExp, value: string) => {
+    return !regexp.test(value);
+  };
 
   private _checkFieldByCustomRules = (element: EventTarget | null) => {
     const input = element as HTMLFormElement;
     if (
-      input
-      && (input.name === USER_NAME_FIELD || input.name === LAST_NAME_USER_FIELD)
+      input &&
+      (input.name === FORM_ELEMENTS.USER_NAME_FIELD ||
+        input.name === FORM_ELEMENTS.LAST_NAME_USER_FIELD)
     ) {
       const isValidValue = this._checkExpressionByRegExp(
         REGEXP_FOR_NAME_AND_LASTNAME,
-        input.value,
+        input.value
       );
-      isValidValue && this._showErrorMessage(CUSTOM_ERROR_FOR_NAME_AND_LASTNAME);
+      isValidValue && this._showErrorMessage(MESSAGES.CUSTOM_ERROR_FOR_NAME_AND_LASTNAME);
       this._isValidFieldWithCustomRules = {
         ...this._isValidFieldWithCustomRules,
         [input.name]: isValidValue,
       };
     }
-    if (input && input.name === PHONE_USER_FIELD) {
+    if (input && input.name === FORM_ELEMENTS.PHONE_USER_FIELD) {
       const isValidValue = this._checkExpressionByRegExp(REGEXP_FOR_PHONE, input.value);
-      isValidValue && this._showErrorMessage(CUSTOM_ERROR_FOR_PHONE_FILED);
+      isValidValue && this._showErrorMessage(MESSAGES.CUSTOM_ERROR_FOR_PHONE_FILED);
       this._isValidFieldWithCustomRules = {
         ...this._isValidFieldWithCustomRules,
         [input.name]: isValidValue,
@@ -79,10 +74,9 @@ export class FormValidator extends View {
   private _checkValidFieldsWithCustomRules = () => {
     if (this._isValidFieldWithCustomRules) {
       return Object.values(this._isValidFieldWithCustomRules).find(
-        (element) => element === true,
+        (element) => element === true
       );
     }
-    return false;
   };
 
   public handleFieldValidation(evt: Event) {
@@ -115,7 +109,7 @@ export class FormValidator extends View {
     inputs.forEach((input) => {
       const inputElement = input as HTMLFormElement;
       const element = input.parentElement?.parentElement?.querySelector(
-        `.${this._inputHelperTextSelector}`,
+        `.${this._inputHelperTextSelector}`
       );
       if (!inputElement.validity.valid) {
         if (element) {
