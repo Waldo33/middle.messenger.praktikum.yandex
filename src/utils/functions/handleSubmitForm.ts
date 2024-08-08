@@ -44,4 +44,5 @@ export const handleSubmitForm = ({
     disableBtn();
     addErors();
   }
+  return;
 };

@@ -77,6 +77,7 @@ export class FormValidator extends View {
         (element) => element === true
       );
     }
+    return;
   };
 
   public handleFieldValidation(evt: Event) {

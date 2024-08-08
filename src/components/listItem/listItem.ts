@@ -3,7 +3,7 @@ import './listItem.css';
 import { ListItemProps } from './types';
 import { ChatType } from '../../types';
 import { DAYS, DATA_ATTRIBUTE } from '../../utils/constants';
-import { getDate } from '../../utils/functions';
+import { getDate } from '../../utils/functions/getDate';
 
 export class ListItem extends Block {
   static componentName = 'ListItem';

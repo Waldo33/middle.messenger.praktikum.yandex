@@ -22,6 +22,8 @@ export function getIdUniqDates(messages: MessageDTO[]) {
       if (date.day === uniqDate) {
         return message;
       }
+
+      return null;
     });
   });
 }
