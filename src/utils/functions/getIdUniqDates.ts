@@ -2,6 +2,10 @@ import { getDate } from './getDate';
 import { MessageDTO } from '../../types';
 
 function getUniqDateFromMessages(messages: MessageDTO[]) {
+  if(!messages) {
+    return [];
+  }
+
   return Array.from(
     new Set(
       messages.map((message) => {
@@ -15,6 +19,10 @@ function getUniqDateFromMessages(messages: MessageDTO[]) {
 export function getIdUniqDates(messages: MessageDTO[]) {
   const uniqDates = getUniqDateFromMessages(messages);
 
+  if(!uniqDates) {
+    return [];
+  }
+
   return uniqDates.map((uniqDate) => {
     return messages.find((message) => {
       const date = getDate(message.time);
@@ -23,7 +31,7 @@ export function getIdUniqDates(messages: MessageDTO[]) {
         return message;
       }
 
-      return null;
+      return false;
     });
   });
 }

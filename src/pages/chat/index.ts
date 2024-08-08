@@ -228,7 +228,7 @@ export default class ChatPage extends Block {
     const {
       chats,
       users,
-      messages,
+      messages = [],
       userInfo,
       usersFromChats,
     } = this.props as InitialStateType;
