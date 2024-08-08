@@ -6,7 +6,7 @@
 
 [Ссылка на Netlify](https://waldo-messenger.netlify.app/)
 
-[Ссылка на PR](https://github.com/Waldo33/middle.messenger.praktikum.yandex/pull/8)
+[Ссылка на PR](https://github.com/Waldo33/middle.messenger.praktikum.yandex/pull/11)
 
 ## Ссылки на страницы
 
