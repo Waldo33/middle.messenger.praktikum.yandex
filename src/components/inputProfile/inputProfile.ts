@@ -5,23 +5,10 @@ import { InputProfileProps } from './types';
 export class InputProfile extends Block {
   static componentName = 'InputProfile';
 
-  constructor({
-    maxlength,
-    minlength,
-    name,
-    onBlur,
-    onFocus,
-    onInput,
-    type,
-    value,
-  }: InputProfileProps) {
+  constructor({ onInput, onFocus, onBlur, ...rest }: InputProfileProps) {
     super({
-      name,
-      minlength,
-      maxlength,
-      type,
-      value,
       events: { input: onInput, focus: onFocus, blur: onBlur },
+      ...rest,
     });
   }
 
@@ -36,9 +23,7 @@ export class InputProfile extends Block {
   }
 
   protected render(): string {
-    const {
-      maxlength, minlength, name, type, value,
-    } = this.state;
+    const { name, minlength, maxlength, type, value } = this.state;
     // language=hbs
     return `
       <input class="input-profile"

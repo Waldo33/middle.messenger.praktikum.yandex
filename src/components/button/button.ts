@@ -6,10 +6,10 @@ export class Button extends Block {
   static componentName = 'Button';
 
   constructor({
-    classes, onClick, textBtn, type,
+    onClick, ...rest
   }: ButtonProps) {
     super({
-      textBtn, type, classes, events: { click: onClick },
+      events: { click: onClick }, ...rest
     });
   }
 
@@ -24,8 +24,8 @@ export class Button extends Block {
   protected render(): string {
     const { classes, textBtn, type } = this.state;
     // language=hbs
-    return `<Button class="button ${
-      classes || ''
-    }" type="${type}">${textBtn}</Button>`;
+    return `<Button class="button ${classes ? classes : ''}" type="${type}">${
+      textBtn ? textBtn : ''
+    }</Button>`;
   }
 }

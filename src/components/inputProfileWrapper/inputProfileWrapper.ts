@@ -5,30 +5,8 @@ import { InputProfileWrapperProps } from './types';
 export class InputProfileWrapper extends Block {
   static componentName = 'InputProfileWrapper';
 
-  constructor({
-    formName,
-    helperText,
-    maxlength,
-    minlength,
-    name,
-    onBlur,
-    onFocus,
-    onInput,
-    type,
-    value,
-  }: InputProfileWrapperProps) {
-    super({
-      formName,
-      name,
-      minlength,
-      maxlength,
-      type,
-      value,
-      helperText,
-      onInput,
-      onFocus,
-      onBlur,
-    });
+  constructor({ ...rest }: InputProfileWrapperProps) {
+    super({ ...rest });
   }
 
   protected getStateFromProps(props: InputProfileWrapperProps): void {
@@ -47,9 +25,7 @@ export class InputProfileWrapper extends Block {
   }
 
   protected render(): string {
-    const {
-      helperText, maxlength, minlength, name, type, value,
-    } = this.state;
+    const { name, minlength, maxlength, type, value, helperText } = this.state;
     // language=hbs
     return `
       <li class="input-profile-wrapper">

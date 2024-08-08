@@ -1,16 +1,19 @@
-import { Block } from '../../core';
+import { Block, BrowserRouter as router } from '../../core';
 import '../../styles/auth.scss';
-import { FormValidator } from '../../utils/classes/FormValidator';
-import { config, AUTH_FORM } from '../../utils/constants';
-import { handleSubmitForm, checkOnValueInput } from '../../utils/functions';
+import { config, FORM_ELEMENTS, PATHNAMES } from '../../utils/constants';
+import { FormValidator } from '../../utils/classes';
+import { checkOnValueInput } from '../../utils/functions/checkOnValueInput';
+import { handleSubmitForm } from '../../utils/functions/handleSubmitForm';
+import { SignupType } from '../../types';
+import { authService } from '../../services';
 
 const signupFormValidator = new FormValidator(
   config,
-  AUTH_FORM,
+  FORM_ELEMENTS.AUTH_FORM,
   config.inputSelector,
   config.btnSubmitFormSelector,
   config.inputHelperTextSelector,
-  config.isShowHelperTextSelector,
+  config.isShowHelperTextSelector
 );
 
 export default class SignupPage extends Block {
@@ -23,19 +26,22 @@ export default class SignupPage extends Block {
       },
       hendleSubmitForm: (evt: Event) => {
         evt.preventDefault();
-        const isValidField = signupFormValidator.isValidFieldWithCustomRules();
-        handleSubmitForm({
+        const dataForm = handleSubmitForm({
           stateForm: signupFormValidator.checkStateForm(),
           inputSelector: config.inputSelector,
-          formSelector: AUTH_FORM,
+          formSelector: FORM_ELEMENTS.AUTH_FORM,
           disableBtn: signupFormValidator.disableBtn,
           addErors: signupFormValidator.addErrorsForInput,
-          isValidField,
+          isValidField: signupFormValidator.isValidFieldWithCustomRules(),
         });
+
+        dataForm && authService.signup(dataForm as SignupType);
       },
+
       handleValidateInput: (evt: Event) => {
         signupFormValidator.handleFieldValidation(evt);
       },
+      handleLinkBtn: () => router.go(PATHNAMES.SIGNIN_PATH),
     };
   }
 
@@ -121,7 +127,10 @@ export default class SignupPage extends Block {
               type="submit"
               classes="button_is-auth"
             }}}
-            <a class="auth__link" href="/">Войти</a>
+            {{{AuthLink
+              onClick=handleLinkBtn
+              text="Войти?"
+            }}}
           </form>
         </main>
       </div>

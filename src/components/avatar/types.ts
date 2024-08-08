@@ -1,4 +1,4 @@
 export interface AvatarProps {
-  srcAvatar: string;
+  srcAvatar?: string;
   userName: string;
 }

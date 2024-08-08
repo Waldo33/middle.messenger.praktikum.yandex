@@ -5,26 +5,28 @@ import { BtnProfileProps } from './types';
 export class BtnProfile extends Block {
   static componentName = 'BtnProfile';
 
-  constructor({ classes, href, text }: BtnProfileProps) {
-    super({ text, classes, href });
+  constructor({ onClick, ...rest }: BtnProfileProps) {
+    super({ events: { click: onClick }, ...rest });
   }
 
   protected getStateFromProps(props: BtnProfileProps): void {
     this.state = {
       text: props.text,
       classes: props.classes,
-      href: props.href,
+      type: props.type,
     };
   }
 
   protected render(): string {
-    const { classes, href, text } = this.state;
+    const { classes, type, text } = this.state;
+    const button =
+      type === 'link'
+        ? `<button class="btn-profile__link ${classes ? classes : ''}">${text}</button>`
+        : `<button class="btn-profile__btn ${classes ? classes : ''}">${text}</button>`;
     // language=hbs
     return `
       <li class="btn-profile">
-        <a class="btn-profile__link ${classes || ''}" href="${href}">
-          ${text}
-        </a>
+        ${button}
       </li>
     `;
   }

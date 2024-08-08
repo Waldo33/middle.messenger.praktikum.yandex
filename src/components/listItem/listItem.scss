@@ -3,6 +3,10 @@
   transition: 0.3s background-color;
   text-align: left;
 
+  &_is-active {
+    background-color: var(--color-light-blue);
+  }
+
   &:hover {
     cursor: pointer;
     background-color: var(--color-light-blue);
@@ -75,5 +79,13 @@
 
   &__count-message_is-show {
     display: block;
+  }
+
+  &__plug-avatar {
+    margin-right: 10px;
+    width: 47px;
+    height: 47px;
+    border-radius: 50%;
+    background-color: var(--color-light-grey);
   }
 }

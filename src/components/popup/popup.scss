@@ -11,6 +11,7 @@
   background-color: var(--color-bg-popap);
   opacity: 0;
   transition: 0.2s ease-in;
+  cursor: pointer;
 
   &_opened {
     visibility: visible;
@@ -18,10 +19,11 @@
   }
 
   &__container {
+    cursor: default;
     background-color: var(--color-third);
     box-sizing: border-box;
     padding: 40px 30px;
-    max-width: 340px;
+    max-width: 380px;
     width: 100%;
     border-radius: 12px;
   }

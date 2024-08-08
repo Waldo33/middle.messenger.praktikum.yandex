@@ -5,21 +5,10 @@ import { InputProps } from './types';
 export class Input extends Block {
   static componentName = 'Input';
 
-  constructor({
-    maxlength,
-    minlength,
-    name,
-    onBlur,
-    onFocus,
-    onInput,
-    type,
-  }: InputProps) {
+  constructor({ onInput, onFocus, onBlur, ...rest }: InputProps) {
     super({
-      name,
-      type,
-      minlength,
-      maxlength,
       events: { input: onInput, focus: onFocus, blur: onBlur },
+      ...rest,
     });
   }
 
@@ -33,9 +22,7 @@ export class Input extends Block {
   }
 
   protected render(): string {
-    const {
-      maxlength, minlength, name, type,
-    } = this.state;
+    const { name, type, minlength, maxlength } = this.state;
     // language=hbs
     return `
       <input
