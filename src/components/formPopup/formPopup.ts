@@ -77,7 +77,7 @@ export class FormPopup extends Block {
 
     // language=hbs
     return `
-          <form class="form_popup ${
+          <form class="form-popup ${
             classesForm !== 'undefined' ? classesForm : ''
           }" name="${name}" novalidate>
             ${renderFormElement()}
