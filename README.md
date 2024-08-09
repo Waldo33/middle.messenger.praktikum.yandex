@@ -2,18 +2,20 @@
 
 ## О проекте
 
-Самостоятельный проект "Мессенджер", выполняемый в рамках курса "Яндекс Практикум. Middle Frontend". 
+Самостоятельный проект "Мессенджер", выполняемый в рамках курса "Яндекс Практикум. Middle Frontend".
 
 [Ссылка на Netlify](https://waldo-messenger.netlify.app/)
 
+[Ссылка на PR](https://github.com/Waldo33/middle.messenger.praktikum.yandex/pull/11)
+
 ## Ссылки на страницы
 
-- [index.html](https://waldo-messenger.netlify.app/)
-- [register.html](https://waldo-messenger.netlify.app/register)
-- [messages.html](https://waldo-messenger.netlify.app/messages)
-- [profile.html](https://waldo-messenger.netlify.app/profile)
-- [404.html](https://waldo-messenger.netlify.app/404)
-- [500.html](https://waldo-messenger.netlify.app/500)
+- [/](https://waldo-messenger.netlify.app/)
+- [/signup](https://waldo-messenger.netlify.app/signup)
+- [/chat](https://waldo-messenger.netlify.app/chat)
+- [/profile](https://waldo-messenger.netlify.app/profile)
+- [/edit-profile](https://waldo-messenger.netlify.app/edit-profile)
+- [/edit-password](https://waldo-messenger.netlify.app/edit-password)
 
 ## Команды
 
@@ -21,4 +23,7 @@
 - `npm run dev` — запуск версии для разработки,
 - `npm start` — сборка и запуск собранной версии,
 - `npm run build` — сборка стабильной версии.
+- `npm run lint` — проверка Eslint.
+- `npm run lint:style` — проверка Stylelint.
+- `npm run lint:fix` — фикс ошибок Eslint.
 

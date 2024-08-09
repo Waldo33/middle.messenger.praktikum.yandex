@@ -1,4 +1,5 @@
 export interface ErrorProps {
-  subtitle: string;
+  onClick?: () => void;
   title: string;
+  subtitle: string;
 }

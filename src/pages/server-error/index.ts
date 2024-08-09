@@ -1,4 +1,4 @@
-import { Block } from '../../core';
+import {Block} from '../../core';
 
 export default class ServerErrorPage extends Block {
   render() {
@@ -6,8 +6,8 @@ export default class ServerErrorPage extends Block {
     return `
       <div class="page">
         {{{Error
-          title="404"
-          subtitle="Не туда попали"
+          title="500"
+          subtitle="Произошла какая-то проблема..."
         }}}
       </div>
     `;

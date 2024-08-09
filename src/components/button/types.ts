@@ -3,6 +3,6 @@ import { ButtonType } from '../../types';
 export interface ButtonProps {
   classes?: string;
   onClick: () => void;
-  textBtn: string;
+  textBtn?: string;
   type: ButtonType;
 }

@@ -1,13 +1,16 @@
 export interface PopupProps {
-  classesForm?: string;
-  classesPopup?: string;
-  helperText?: Text;
-  isDefault: boolean;
-  name: string;
+  onSubmit?: () => void;
+  onInput?: () => void;
+  onFocus?: () => void;
   onBlur?: () => void;
   onClick?: () => void;
-  onFocus?: () => void;
-  onInput?: () => void;
-  textBtn: string;
+  classesPopup?: string;
+  classesForm?: string;
+  name: string;
+  fieldName?: string;
   title: string;
+  isDefault?: boolean;
+  helperText?: Text;
+  textBtn?: string;
+  users?: any;
 }
