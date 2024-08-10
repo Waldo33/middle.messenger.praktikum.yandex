@@ -24,7 +24,7 @@ export class Avatar extends Block {
     return `
       <img
         class="avatar"
-        src="${srcAvatar ? `${URLS.RESOURCES}${srcAvatar}` : defaultIcon}"
+        src="${srcAvatar !== null ? `${URLS.RESOURCES}/${srcAvatar}` : defaultIcon}"
         alt="Аватар пользователя ${userName}"
       />
     `;
