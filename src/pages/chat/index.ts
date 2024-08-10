@@ -226,7 +226,7 @@ export default class ChatPage extends Block {
     checkIsLoginIn();
 
     const {
-      chats,
+      chats = [],
       users,
       messages = [],
       userInfo,
@@ -236,6 +236,27 @@ export default class ChatPage extends Block {
 
     const uniqMessages = getIdUniqDates(messages);
 
+    const chatsTemplate = chats &&
+    chats?.map(
+      (chat: any) =>
+        `{{{ListItem
+          id="${chat.id}"
+          userName="${chat.title}"
+          lastMessage="${
+            chat.last_message ? chat.last_message.content : null
+          }"
+          time="${chat.last_message ? chat.last_message.time : null}"
+          countNotReadMessage="${chat.unread_count}"
+          srcAvatar="${chat.avatar}"
+          isOwnerLastMessage="${
+            chat.last_message
+              ? chat.last_message.user.login === userInfo?.login
+              : null
+          }"
+          onClick=addClassForActiveElement
+        }}}`
+    )
+
     // language=hbs
     return `
       <div class="page">
@@ -244,30 +265,7 @@ export default class ChatPage extends Block {
             {{{ChatLink onClick=handleLinkBtn}}}
             {{{SearchChat onSearchByChats=handleSearchByChats }}}
             <ul class="chat__list">
-              ${
-                chats &&
-                Object.values(chats)
-                  ?.map(
-                    (chat: any) =>
-                      `{{{ListItem
-                        id="${chat.id}"
-                        userName="${chat.title}"
-                        lastMessage="${
-                          chat.last_message ? chat.last_message.content : null
-                        }"
-                        time="${chat.last_message ? chat.last_message.time : null}"
-                        countNotReadMessage="${chat.unread_count}"
-                        srcAvatar="${chat.avatar}"
-                        isOwnerLastMessage="${
-                          chat.last_message
-                            ? chat.last_message.user.login === userInfo.login
-                            : null
-                        }"
-                        onClick=addClassForActiveElement
-                      }}}`
-                  )
-                  .join('')
-              }
+              ${chatsTemplate.join('')}
             </ul>
           </li>
           <li class="chat__column chat__column-default">
