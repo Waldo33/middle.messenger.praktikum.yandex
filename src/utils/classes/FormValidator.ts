@@ -115,7 +115,7 @@ export class FormValidator extends View {
       if (!inputElement.validity.valid) {
         if (element) {
           element.textContent = inputElement.validationMessage;
-          element.classList.add(this._isShowHelperTextSelector);
+          element.classList?.add(this._isShowHelperTextSelector);
         }
       }
     });
