@@ -49,11 +49,7 @@ export class ListItem extends Block {
     return `
       <li class="list-item" ${DATA_ATTRIBUTE.CHAT_ID}="${id}">
         <div class="list-item__container">
-          ${
-            srcAvatar
-              ? '<div class="list-item__plug-avatar"></div>'
-              : `{{{Avatar srcAvatar="${srcAvatar}" userName="${userName}"}}}`
-          }
+          {{{Avatar srcAvatar="${srcAvatar}" userName="${userName}"}}}
           <div class="list-item__inner">
             <p class="list-item__user-name">${userName}</p>
             <p class="list-item__message">
