@@ -1,6 +1,6 @@
 import { showTooltip } from "./tooltip";
 
-function getMessageFromResponse(errText: string) {
+export function getMessageFromResponse(errText: string) {
   return Object.values(JSON.parse(errText))[0];
 }
 

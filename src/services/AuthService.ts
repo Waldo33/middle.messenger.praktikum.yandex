@@ -3,7 +3,7 @@ import { SignupType, SigninType } from '../types';
 import { BrowserRouter as router, store } from '../core';
 import { showTooltip } from '../utils/functions/tooltip';
 import { lOCALSTORAGE, MESSAGES, PATHNAMES } from '../utils/constants';
-import { showError } from '../utils/functions/showError';
+import { getMessageFromResponse, showError } from '../utils/functions/showError';
 
 class AuthService {
   public signup({ ...rest }: SignupType) {
@@ -31,7 +31,12 @@ class AuthService {
         localStorage.setItem(lOCALSTORAGE.IS_SIGNIN, 'true');
         router.go(PATHNAMES.MESSAGER_PATH);
       })
-      .catch(showError);
+      .catch((err) => {
+        const errorText = getMessageFromResponse(err.responseText)
+        if (errorText === "User already in system") {
+          router.go(PATHNAMES.MESSAGER_PATH);
+        }
+      });
   }
 
   public signout() {
