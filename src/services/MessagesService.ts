@@ -56,20 +56,24 @@ class MessagesService {
   }
 
   private _handleMessage(evt: any) {
-    const messages = JSON.parse(evt.data);
+    try {
+      const messages = JSON.parse(evt.data);
 
-    if (messages.type !== TYPES_MESSAGE_WEBSOCKET.PONG) {
-      if (Array.isArray(messages)) {
-        store.setState({
-          messages: messages.reverse(),
-        });
-      } else {
-        const state = store.getState() as InitialStateType;
+      if (messages.type !== TYPES_MESSAGE_WEBSOCKET.PONG) {
+        if (Array.isArray(messages)) {
+          store.setState({
+            messages: messages.reverse(),
+          });
+        } else {
+          const state = store.getState() as InitialStateType;
 
-        store.setState({
-          messages: Object.assign(state.messages, { [state.messages.length]: messages }),
-        });
+          store.setState({
+            messages: Object.assign(state.messages, { [state.messages.length]: messages }),
+          });
+        }
       }
+    } catch (e: unknown) {
+      console.error(e)
     }
   }
 
