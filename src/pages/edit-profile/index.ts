@@ -77,7 +77,7 @@ export default class EditProfilePage extends Block {
 
     const { userInfo } = this.props as InitialStateType;
     const { avatar, display_name, email, first_name, login, phone, second_name } =
-      userInfo;
+      userInfo || {};
 
     // language=hbs
     return `

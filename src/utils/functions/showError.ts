@@ -1,7 +1,12 @@
 import { showTooltip } from "./tooltip";
 
 export function getMessageFromResponse(errText: string) {
-  return Object.values(JSON.parse(errText))[0];
+  try {
+    return Object.values(JSON.parse(errText))[0];
+  } catch (e) {
+    console.error(e)
+    return {};
+  }
 }
 
 export function showError(err: any) {

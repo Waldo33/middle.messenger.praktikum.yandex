@@ -65,7 +65,7 @@ export class FormPopup extends Block {
             }}}
             `
           : `
-            {{{InputFile}}}
+            {{{InputFile inputFileName="avatar" }}}
             {{{Button
               textBtn="${textBtn}"
               type="submit"
