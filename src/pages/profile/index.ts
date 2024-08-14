@@ -32,7 +32,6 @@ export default class ProfilePage extends Block {
 
         const editForm = document.forms[1];
         const formData = new FormData(editForm);
-
         profileService.changeAvatar(formData);
       },
       handleSignOut: (evt: Event) => {

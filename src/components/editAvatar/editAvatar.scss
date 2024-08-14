@@ -35,6 +35,12 @@
     line-height: 14px;
   }
 
+  &__img {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+  }
+
   &:hover::before {
     opacity: 1;
   }
