@@ -5,12 +5,8 @@ import { MenuButtonProps } from './types';
 export class MenuButton extends Block {
   static componentName = 'MenuButton';
 
-  constructor({
-    alt, classes, icon, onClick, text, type,
-  }: MenuButtonProps) {
-    super({
-      text, icon, alt, classes, type, events: { click: onClick },
-    });
+  constructor({ onClick, ...rest }: MenuButtonProps) {
+    super({ events: { click: onClick }, ...rest });
   }
 
   protected getStateFromProps(props: MenuButtonProps): void {
@@ -24,9 +20,7 @@ export class MenuButton extends Block {
   }
 
   protected render(): string {
-    const {
-      alt, classes, icon, text, type,
-    } = this.state;
+    const { text, icon, alt, classes, type } = this.state;
     // language=hbs
     return `
       <button class="menu-button ${classes}" type="${type}">

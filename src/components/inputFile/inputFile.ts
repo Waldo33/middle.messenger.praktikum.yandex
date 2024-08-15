@@ -24,7 +24,7 @@ export class InputFile extends Block {
     // language=hbs
     return `
       <label class="input-file">
-        <input class="input-file__input" type="file" name="${inputFileName}" />
+        <input class="input-file__input" type="file" name="${inputFileName}" accept="image/*" />
         <span class="input-file__span">Выбрать файл на компьютере</span>
       </label>
     `;
