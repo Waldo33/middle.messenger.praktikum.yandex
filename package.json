@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "lint:style": "npx stylelint \"**/*.scss\" --fix",
     "lint:fix": "eslint ./src --fix",
-    "test": "mocha --es-module-specifier-resolution=node --require ts-node/register"
+    "test": "mocha --es-module-specifier-resolution=node --require ts-node/register",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@types/chai": "^5.0.0",
@@ -45,14 +46,14 @@
     "uuid": "^10.0.0"
   },
   "husky": {
-      "hooks": {
-          "pre-commit": "lint-staged"
-      }
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "lint-staged": {
-      "*.(js|ts|scss|css)": [
-          "npm run lint",
-          "git add"
-      ]
+    "*.(js|ts|scss|css)": [
+      "npm run lint",
+      "git add"
+    ]
   }
 }
