@@ -11,6 +11,7 @@
     "lint:style": "npx stylelint \"**/*.scss\" --fix",
     "lint:fix": "eslint ./src --fix",
     "test": "mocha --es-module-specifier-resolution=node --require ts-node/register",
+    "prepare": "husky install",
     "postinstall": "husky install"
   },
   "devDependencies": {
