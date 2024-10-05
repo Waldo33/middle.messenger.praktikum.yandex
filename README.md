@@ -6,7 +6,7 @@
 
 [Ссылка на Netlify](https://waldo-messenger.netlify.app/)
 
-[Ссылка на PR](https://github.com/Waldo33/middle.messenger.praktikum.yandex/pull/11)
+[Ссылка на PR](https://github.com/Waldo33/middle.messenger.praktikum.yandex/pull/23)
 
 ## Ссылки на страницы
 
@@ -26,4 +26,5 @@
 - `npm run lint` — проверка Eslint.
 - `npm run lint:style` — проверка Stylelint.
 - `npm run lint:fix` — фикс ошибок Eslint.
+- `npm run test`
 
