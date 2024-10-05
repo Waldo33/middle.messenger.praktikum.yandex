@@ -43,5 +43,16 @@
     "jsdom": "^25.0.1",
     "sinon": "^19.0.2",
     "uuid": "^10.0.0"
+  },
+  "husky": {
+      "hooks": {
+          "pre-commit": "lint-staged"
+      }
+  },
+  "lint-staged": {
+      "*.(js|ts|scss|css)": [
+          "npm run lint",
+          "git add"
+      ]
   }
 }
