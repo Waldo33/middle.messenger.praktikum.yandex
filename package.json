@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "lint:style": "npx stylelint \"**/*.scss\" --fix",
     "lint:fix": "eslint ./src --fix",
-    "test": "mocha --es-module-specifier-resolution=node --require ts-node/register"
+    "test": "mocha --es-module-specifier-resolution=node --require ts-node/register",
+    "postinstall": "husky install"
   },
   "devDependencies": {
     "@types/chai": "^5.0.0",
