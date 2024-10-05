@@ -7,7 +7,7 @@ export class Test extends Block {
   protected render(): string {
     // language=hbs
     return `
-      <p>Test</p>
+      <p>Test Block</p>
     `;
   }
 }
