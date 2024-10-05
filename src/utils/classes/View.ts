@@ -1,3 +1,5 @@
+import { Nullable } from "../../types";
+
 export abstract class View {
   protected _isActiveChatSelector!: string;
 

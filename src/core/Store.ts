@@ -43,7 +43,7 @@ export const initialState: InitialStateType = {
 };
 
 
-class Store<T> extends EventBus {
+export class Store<T> extends EventBus {
   state: T | null;
 
   constructor(initialData: T | null = null) {
