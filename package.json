@@ -49,7 +49,11 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm-run-all test lint lint:style"
+      "pre-commit": "npm-run-all test lint:*"
     }
+  },
+  "lint-staged": {
+    "*.ts": "eslint ./src --fix",
+    "*.scss": "stylelint \"**/*.scss\" --fix"
   }
 }
