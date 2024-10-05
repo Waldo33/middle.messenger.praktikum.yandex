@@ -18,5 +18,5 @@
     "skipLibCheck": true,
     "strictNullChecks": true
   },
-  "include": ["src/**/*.ts", "tests/**/*.ts", "global.d.ts"]
+  "include": ["src/**/*.ts", "global.d.ts"]
 }
