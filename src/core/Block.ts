@@ -17,7 +17,7 @@ export default class Block<P = unknown> {
     FLOW_RENDER: 'flow:render',
   } as const;
 
-  public id = uuidv4();
+  public id = 1;
 
   protected _meta: BlockMeta;
 
