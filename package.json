@@ -8,7 +8,8 @@
     "build": "tsc && vite build",
     "start": "npm run build && node server.js",
     "lint": "eslint .",
-    "lint:style": "npx stylelint \"**/*.scss\" --fix",
+    "lint:style": "npx stylelint \"**/*.scss\"",
+    "lint:style:fix": "npx stylelint \"**/*.scss\" --fix",
     "lint:fix": "eslint ./src --fix",
     "test": "mocha --es-module-specifier-resolution=node --require ts-node/register",
     "prepare": "husky install",
@@ -49,9 +50,7 @@
     "uuid": "^10.0.0"
   },
   "lint-staged": {
-      "*.(js|ts|scss|css)": [
-          "npm run lint",
-          "git add"
-      ]
+      "*.(js|ts)": ["npm run lint", "npm run test"],
+      "*.(css|scss)": "npm run lint:style"
   }
 }
