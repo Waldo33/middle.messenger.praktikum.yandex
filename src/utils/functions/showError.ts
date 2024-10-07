@@ -16,5 +16,3 @@ export function showError(err: any) {
       type: 'error',
     });
 }
-
-console.log(123)
