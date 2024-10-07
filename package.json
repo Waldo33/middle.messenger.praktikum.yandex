@@ -42,9 +42,21 @@
     "eslint-config-airbnb": "^19.0.4",
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.29.1",
-    "husky": "^7.0.4",
+    "husky": "8.0.2",
     "jsdom": "^25.0.1",
+    "lint-staged": "^15.2.10",
     "sinon": "^19.0.2",
     "uuid": "^10.0.0"
+  },
+  "husky": {
+      "hooks": {
+          "pre-commit": "lint-staged"
+      }
+  },
+  "lint-staged": {
+      "*.(js|ts|scss|css)": [
+          "npm run lint",
+          "git add"
+      ]
   }
 }
