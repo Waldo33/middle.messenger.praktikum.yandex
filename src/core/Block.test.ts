@@ -6,7 +6,7 @@ import EventBus from './EventBus';
 // Mocking a simple block class that extends Block
 class MockBlock extends Block {
   render(): string {
-    return '<div>Test Block</div>';
+    return '<div>Test</div>';
   }
 }
 
