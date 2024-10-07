@@ -4,7 +4,7 @@ import { checkOnCorrectUrl } from '../utils/functions/checkOnCorrectUrl';
 
 type PopStateEventTarget = EventTarget & { location: Location }
 
-class BrowseRouter {
+export class BrowseRouter {
   static __instance: BrowseRouter;
   private routers: Array<Route> = [];
   private history: History = window.history;

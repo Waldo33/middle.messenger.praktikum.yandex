@@ -1,4 +1,4 @@
-enum METHODS {
+export enum METHODS {
     DELETE = 'DELETE',
     GET = 'GET',
     PATCH = 'PATCH',
@@ -18,8 +18,8 @@ enum METHODS {
     withCredentials?: boolean;
   };
 
-function queryStringify(data: RequestData) {
-  if (!data) {
+export function queryStringify(data: RequestData) {
+  if (!data || !Object.values(data || {}).length) {
     return '';
   }
   return Object.entries(data).reduce(

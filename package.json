@@ -9,26 +9,42 @@
     "start": "npm run build && node server.js",
     "lint": "eslint .",
     "lint:style": "npx stylelint \"**/*.scss\" --fix",
-    "lint:fix": "eslint ./src --fix"
+    "lint:fix": "eslint ./src --fix",
+    "test": "mocha --es-module-specifier-resolution=node --require ts-node/register",
+    "prepare": "husky install",
+    "postinstall": "husky install"
   },
   "devDependencies": {
-    "@types/node": "^20.12.8",
+    "@types/chai": "^5.0.0",
+    "@types/jsdom": "^21.1.7",
+    "@types/mocha": "^10.0.8",
+    "@types/node": "^20.16.10",
+    "@types/sinon": "^17.0.3",
     "@types/uuid": "^10.0.0",
+    "chai": "^5.1.1",
     "eslint": "^8.57.0",
     "express": "^5.0.0-beta.2",
     "handlebars": "^4.7.8",
+    "mocha": "^10.7.3",
     "sass": "^1.76.0",
     "stylelint": "^16.6.1",
     "stylelint-config-standard": "^36.0.1",
+    "ts-node": "^10.9.2",
     "typescript": "^5.2.2",
     "typescript-eslint": "^7.8.0",
     "vite": "^5.2.0",
     "vite-plugin-handlebars": "^2.0.0"
   },
   "dependencies": {
+    "@babel/preset-env": "^7.25.7",
+    "@babel/preset-typescript": "^7.25.7",
+    "@babel/register": "^7.25.7",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.29.1",
+    "husky": "^7.0.4",
+    "jsdom": "^25.0.1",
+    "sinon": "^19.0.2",
     "uuid": "^10.0.0"
   }
 }
