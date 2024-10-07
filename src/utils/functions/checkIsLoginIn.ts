@@ -5,5 +5,4 @@ export function checkIsLoginIn() {
   if (!localStorage.getItem(lOCALSTORAGE.IS_SIGNIN)) {
     router.back();
   }
-  console.log(123)
 }
