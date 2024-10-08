@@ -1,4 +1,4 @@
-// import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import Handlebars from 'handlebars';
 import EventBus from './EventBus';
 import { Nullable, Values } from '../types';
@@ -17,7 +17,7 @@ export default class Block<P = unknown> {
     FLOW_RENDER: 'flow:render',
   } as const;
 
-  public id = 1;
+  public id = uuidv4();
 
   protected _meta: BlockMeta;
 
