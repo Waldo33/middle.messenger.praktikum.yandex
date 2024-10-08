@@ -8,11 +8,13 @@
     "build": "tsc && vite build",
     "start": "npm run build && node server.js",
     "lint": "eslint .",
-    "lint:style": "npx stylelint \"**/*.scss\" --fix",
+    "lint:style": "npx stylelint \"**/*.scss\"",
+    "lint:style:fix": "npx stylelint \"**/*.scss\" --fix",
     "lint:fix": "eslint ./src --fix",
     "test": "mocha --es-module-specifier-resolution=node --require ts-node/register",
     "prepare": "husky install",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "validate": "lint-staged && npm run test"
   },
   "devDependencies": {
     "@types/chai": "^5.0.0",
@@ -42,9 +44,14 @@
     "eslint-config-airbnb": "^19.0.4",
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.29.1",
-    "husky": "^7.0.4",
+    "husky": "7.0.4",
     "jsdom": "^25.0.1",
+    "lint-staged": "15.2.7",
     "sinon": "^19.0.2",
     "uuid": "^10.0.0"
+  },
+  "lint-staged": {
+      "*.(js|ts)": ["npm run lint", "npm run test"],
+      "*.(css|scss)": "npm run lint:style"
   }
 }
